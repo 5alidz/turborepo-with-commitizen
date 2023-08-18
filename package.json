@@ -1,0 +1,44 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "node -e \"try { !(process.env.CI !== undefined) && require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\""
+  },
+  "devDependencies": {
+    "@turbo/gen": "^1.9.7",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "*",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.0",
+    "prettier": "^2.5.1",
+    "turbo": "latest"
+  },
+  "name": "turborepo-with-commitizen",
+  "packageManager": "yarn@1.22.19",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "lint-staged": {
+    "apps/**/*.{js,ts,jsx,tsx}": [
+      "./node_modules/eslint/bin/eslint.js --fix"
+    ],
+    "packages/ui/**/*.{js,ts,jsx,tsx}": [
+      "./node_modules/eslint/bin/eslint.js --fix"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
