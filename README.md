@@ -38,6 +38,18 @@ yarn prepare
 
 ### create the hooks
 
+add lint-staged to pre-commit hook
+
 ```sh
 npx husky add .husky/pre-commit "npm run test && npx lint-staged"
 ```
+
+add commitizen to prepare-commit-msg
+
+```sh
+npx husky add .husky/prepare-commit-msg "exec < /dev/tty && git cz --hook || true"
+```
+
+### How to use commitizen
+
+after staging your files with `git add` run `git commit` to launch the interactive commit wizard
