@@ -45,7 +45,8 @@
   },
   "standard-version": {
     "skip": {
-      "bump": true
+      "bump": true,
+      "commit": true
     }
   }
 }
