@@ -1,3 +1,25 @@
+# This is a test monorepo that uses commitizen
+
+## Try it out
+
+clone the repo and run `yarn` to install the dependencies
+
+```sh
+gh repo clone 5alidz/turborepo-with-commitizen
+cd turborepo-with-commitizen
+yarn
+```
+
+do a change and commit it
+
+```sh
+echo "test" >> abc.txt && git add . && git commit
+```
+
+enojoy the interactive commit wizard 🎉
+
+## Steps taken to create the repo
+
 ### installing husky and lint staged
 
 ```sh
